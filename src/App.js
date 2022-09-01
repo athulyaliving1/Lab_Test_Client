@@ -6,10 +6,13 @@ import "axios-progress-bar/dist/nprogress.css";
 import Register from "./components/Authentication/Register.js";
 import NavbarXl from "./components/MainComponent/NavbarXL.js";
 import Login from "./components/Authentication/Login.js";
+import { useSelector } from "react-redux";
 
 loadProgressBar();
 
 function App() {
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
   return (
     <>
       <BrowserRouter>
@@ -17,7 +20,7 @@ function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="register" element={<Register />} />
-          <Route path="login" element={<Login />} />
+          <Route path="login" element={userInfo ? <Home /> : <Login />} />
 
           {/* <Route path="dashboard" element={<Dashboard/>}/>
           <Route path="add" element={<Add />} />

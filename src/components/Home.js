@@ -5,10 +5,7 @@ import NavbarXl from "./MainComponent/NavbarXL";
 
 function Home() {
   return (
-    <div>
-      <Login />
-      <Footer />
-    </div>
+    <div className="w-screen h-screen bg-gray-700 py-96">this is homepage</div>
   );
 }
 
